@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+	  <groupId>org.mdacc.ristore</groupId>
+	  <artifactId>ristore-web</artifactId>
+	  <version>1.0</version>
+  </parent>
+  <groupId>org.mda.ristore</groupId>
+  <artifactId>dao</artifactId>
+  <version>1.0</version>
+  <!-- JBoss repository for Hibernate -->
+  <repositories>
+	<repository>
+		<id>JBoss repository</id>
+		<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+	</repository>
+<!-- 	<repository> -->
+<!--   	  	<snapshots> -->
+<!--         	<enabled>false</enabled> -->
+<!--       	</snapshots> -->
+<!--       	<id>central</id> -->
+<!--       	<name>repo</name> -->
+<!--       	<url>http://risdevtool01p.mdanderson.edu:8081/artifactory/repo</url> -->
+<!--     </repository> -->
+  </repositories>
+  <properties>
+  	<apache.maven.compiler.version>3.1</apache.maven.compiler.version>
+  	<apache.maven.shade.version>2.3</apache.maven.shade.version>
+  	<skipTests>true</skipTests>
+  </properties>
+  <dependencies>
+ 	<dependency>
+	  <groupId>com.oracle</groupId>
+	  <artifactId>ojdbc7</artifactId>
+	  <version>12.1.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>joda-time</groupId>
+		<artifactId>joda-time</artifactId>
+		<version>2.8.1</version>
+	</dependency>
+	<dependency>
+		<groupId>joda-time</groupId>
+		<artifactId>joda-time-hibernate</artifactId>
+		<version>1.4</version>
+	</dependency>
+	<dependency>
+		<groupId>org.jadira.usertype</groupId>
+		<artifactId>usertype.jodatime</artifactId>
+		<version>2.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.0</version>
+	</dependency>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+	</dependency>
+	<dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi</artifactId>
+  		<version>3.14</version>
+  	</dependency>
+	<dependency>
+		<groupId>org.javassist</groupId>
+		<artifactId>javassist</artifactId>
+		<version>3.20.0-GA</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>5.1.0.Final</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>1.0.0.Final</version>
+	</dependency>
+	<dependency>
+	  	<groupId>org.mdacc.ris.notificationclient</groupId>
+		<artifactId>notification_client</artifactId>
+		<version>1.1</version>
+		<scope>compile</scope>
+	</dependency>	
+
+  </dependencies>
+  <build>
+  	<plugins>
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${apache.maven.compiler.version}</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.19.1</version>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>${apache.maven.shade.version}</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <finalName>uber-${artifactId}-${version}</finalName>
+        </configuration>
+      </plugin>    
+  	</plugins> 	
+  </build>
+</project>

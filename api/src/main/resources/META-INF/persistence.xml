@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="RIStore_FM" >
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportAltPropertyTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportAltTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportAltTherapyTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportAltTrialLkTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportAmendmendTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportAppTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportGeneTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportPertNegTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportReferenceTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportRefLkTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportSampleTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportSignatureTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportTrialTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportVarPropertyTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportVarSampleTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmReportVarTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.SpecimenTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FileLoadTb</class>
+		<class>org.mdacc.ristore.ws.fm.models.FmTrfTb</class>
+
+        <properties>            
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+            <property name="eclipselink.logging.level" value="all" />
+        </properties>
+	</persistence-unit>
+
+</persistence>
